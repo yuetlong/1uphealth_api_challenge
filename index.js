@@ -58,7 +58,7 @@ const getPatientMedicationOrder = (json) => {
         medicationReference: r?.medicationReference?.display,
         prescriber: r?.prescriber?.display,
         dateWritten : r.dateWritten,
-        dosageInstruction: r?.dosageInstruction?.text,
+        dosageInstruction: JSONPath({ path: "$.dosageInstruction[*].text", json : r })
     }})
 }
 
